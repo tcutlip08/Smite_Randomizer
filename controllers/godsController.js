@@ -37,7 +37,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
-  findOneOfEach: function(req, res) {
+  findOneOfEachConq: function(req, res) {
     db.Gods.find(req.query)
       .then(dbModel => {
         let team = [];
@@ -58,6 +58,22 @@ module.exports = {
             " || Mid-" +
             team[4]
         );
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  findOneOfEachJoust: function(req, res) {
+    db.Gods.find(req.query)
+      .then(dbModel => {
+        let team = [];
+        for (let i = 0; i < 3; i++) {
+          let randomclass = dbModel[Math.floor(Math.random() * dbModel.length)];
+          team.push(
+            randomclass.name[
+              Math.floor(Math.random() * randomclass.name.length)
+            ]
+          );
+        }
+        res.send(team[0] + " || " + team[1] + " || " + team[2]);
       })
       .catch(err => res.status(422).json(err));
   },
