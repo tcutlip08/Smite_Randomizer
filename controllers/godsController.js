@@ -49,11 +49,11 @@ module.exports = {
         res.send(
           "Solo-" +
             team[0] +
-            " || Support-" +
+            " || Sup-" +
             team[1] +
             " || Carry-" +
             team[2] +
-            " || Jungle-" +
+            " || Jung-" +
             team[3] +
             " || Mid-" +
             team[4]
