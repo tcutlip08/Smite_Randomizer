@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const godsController = require("../../controllers/godsController");
 
+router.route("/random/team").get(godsController.findOneOfEach);
 router.route("/random").get(godsController.findOne);
 
 router.route("/:class/random").get(godsController.findOneByClass);

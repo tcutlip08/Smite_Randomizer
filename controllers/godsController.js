@@ -37,6 +37,30 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+  findOneOfEach: function(req, res) {
+    db.Gods.find(req.query)
+      .then(dbModel => {
+        let team = [];
+        for (let i = 0; i < dbModel.length; i++) {
+          team.push(
+            dbModel[i].name[Math.floor(Math.random() * dbModel[i].name.length)]
+          );
+        }
+        res.send(
+          "Solo: " +
+            team[0] +
+            "\nSupport: " +
+            team[1] +
+            "\nCarry: " +
+            team[2] +
+            "\nJungle: " +
+            team[3] +
+            "\nMid: " +
+            team[4]
+        );
+      })
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Gods.create(req.body)
       .then(dbModel => res.json(dbModel))
