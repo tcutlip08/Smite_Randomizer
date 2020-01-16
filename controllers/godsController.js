@@ -47,15 +47,15 @@ module.exports = {
           );
         }
         res.send(
-          "Solo: " +
+          "Solo-" +
             team[0] +
-            "     Support: " +
+            " || Support-" +
             team[1] +
-            "     Carry: " +
+            " || Carry-" +
             team[2] +
-            "     Jungle: " +
+            " || Jungle-" +
             team[3] +
-            "     Mid: " +
+            " || Mid-" +
             team[4]
         );
       })
