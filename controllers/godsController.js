@@ -18,7 +18,8 @@ module.exports = {
     db.Gods.find({ class: req.params.class })
       .then(dbModel => {
         res.send(
-          "God: " +
+          dbModel[0].class +
+            ": " +
             dbModel[0].name[Math.floor(Math.random() * dbModel[0].name.length)]
         );
       })
@@ -29,7 +30,8 @@ module.exports = {
       .then(dbModel => {
         let randomclass = dbModel[Math.floor(Math.random() * dbModel.length)];
         res.send(
-          "God: " +
+          randomclass.class +
+            ": " +
             randomclass.name[
               Math.floor(Math.random() * randomclass.name.length)
             ]
