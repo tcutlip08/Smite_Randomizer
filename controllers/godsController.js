@@ -17,18 +17,23 @@ module.exports = {
   findOneByClass: function(req, res) {
     db.Gods.find({ class: req.params.class })
       .then(dbModel => {
-        console.log(dbModel[0].name);
-        res.json({
-          Message: "Sucesfully returned random god",
-          Data: {
-            class: dbModel[0].class,
-            name:
-              dbModel[0].name[
-                Math.floor(Math.random() * dbModel[0].name.length)
-              ]
-          },
-          Error: false
-        });
+        res.send(
+          "God: " +
+            dbModel[0].name[Math.floor(Math.random() * dbModel[0].name.length)]
+        );
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  findOne: function(req, res) {
+    db.Gods.find(req.query)
+      .then(dbModel => {
+        let randomclass = dbModel[Math.floor(Math.random() * dbModel.length)];
+        res.send(
+          "God: " +
+            randomclass.name[
+              Math.floor(Math.random() * randomclass.name.length)
+            ]
+        );
       })
       .catch(err => res.status(422).json(err));
   },
