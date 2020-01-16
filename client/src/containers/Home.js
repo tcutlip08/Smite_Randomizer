@@ -19,8 +19,19 @@ class Home extends Component {
   }
 
   randomize() {
+    let array = [];
+    for (let i = 0; i < this.state.gods.length; i++) {
+      if (this.state.gods[i].checked) {
+        array.push(this.state.gods[i].class);
+      }
+    }
+
     axios
-      .get("/api/gods/Guardian/random")
+      .get(
+        "/api/gods/" +
+          array[Math.floor(Math.random() * array.length)] +
+          "/random"
+      )
       .then(res => {
         console.log(res);
       })
@@ -31,10 +42,16 @@ class Home extends Component {
 
   changeCheckBox = event => {
     const { name, checked } = event.target;
-    this.setState({
-      [name]: checked
-    });
+    for (let i = 0; i < this.state.gods.length; i++) {
+      if (name === this.state.gods[i].class) {
+        let array = this.state.gods;
+        array[i].checked = !array[i].checked;
+        this.setState({ gods: array });
+        return;
+      }
+    }
   };
+
   render() {
     return (
       <div className="container">
@@ -61,7 +78,7 @@ class Home extends Component {
           <div className="col">
             <input
               type="checkbox"
-              name="guardian"
+              name="Guardian"
               defaultChecked={this.state.gods[0].checked}
               onChange={this.changeCheckBox}
             />
@@ -72,7 +89,7 @@ class Home extends Component {
           <div className="col">
             <input
               type="checkbox"
-              name="warrior"
+              name="Warrior"
               defaultChecked={this.state.gods[1].checked}
               onChange={this.changeCheckBox}
             />
@@ -83,7 +100,7 @@ class Home extends Component {
           <div className="col">
             <input
               type="checkbox"
-              name="assassin"
+              name="Assassin"
               defaultChecked={this.state.gods[2].checked}
               onChange={this.changeCheckBox}
             />
@@ -94,7 +111,7 @@ class Home extends Component {
           <div className="col">
             <input
               type="checkbox"
-              name="mage"
+              name="Mage"
               defaultChecked={this.state.gods[3].checked}
               onChange={this.changeCheckBox}
             />
@@ -105,7 +122,7 @@ class Home extends Component {
           <div className="col">
             <input
               type="checkbox"
-              name="hunter"
+              name="Hunter"
               defaultChecked={this.state.gods[4].checked}
               onChange={this.changeCheckBox}
             />
