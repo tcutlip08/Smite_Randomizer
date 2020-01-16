@@ -43,7 +43,13 @@ const NavBar = props => {
             </li>
             {props.isAuthed ? (
               <li className="nav-item active">
-                <Link to="/auth" className="nav-link" onClick={() => {props.setIsAuthed(false)}}>
+                <Link
+                  to="/auth"
+                  className="nav-link"
+                  onClick={() => {
+                    props.setIsAuthed(false);
+                  }}
+                >
                   Log Out <span className="sr-only">(current)</span>
                 </Link>
               </li>

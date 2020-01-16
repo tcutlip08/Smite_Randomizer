@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import Logo from "../assets/SmiteLogo.png";
+import CheckBox from "../components/CheckBox/CheckBox";
 import axios from "axios";
 
 class Home extends Component {
@@ -11,7 +12,8 @@ class Home extends Component {
       { class: "Assassin", checked: true },
       { class: "Mage", checked: true },
       { class: "Hunter", checked: true }
-    ]
+    ],
+    random: ""
   };
 
   componentDidUpdate() {
@@ -33,7 +35,7 @@ class Home extends Component {
           "/random"
       )
       .then(res => {
-        console.log(res);
+        this.setState({ random: res.data });
       })
       .catch(err => {
         console.log(err);
@@ -61,7 +63,15 @@ class Home extends Component {
         >
           <img src={Logo} alt="Smite Logo" style={{ width: "50%" }} />
         </div>
-
+        <div className="row" style={{ paddingTop: "2em" }}>
+          <div className="col"></div>
+          <div className="col" style={{ textAlign: "center", margin: "auto" }}>
+            {this.state.random
+              ? this.state.random
+              : "Go on...click it! You know you want to"}
+          </div>
+          <div className="col"></div>
+        </div>
         <div className="row" style={{ paddingTop: "2em" }}>
           <div className="col"></div>
           <div className="col" style={{ textAlign: "center", margin: "auto" }}>
@@ -75,59 +85,15 @@ class Home extends Component {
           <div className="col"></div>
         </div>
         <div className="row">
-          <div className="col">
-            <input
-              type="checkbox"
-              name="Guardian"
-              defaultChecked={this.state.gods[0].checked}
-              onChange={this.changeCheckBox}
-            />
-            <span className="class">Guardian</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <input
-              type="checkbox"
-              name="Warrior"
-              defaultChecked={this.state.gods[1].checked}
-              onChange={this.changeCheckBox}
-            />
-            <span className="class">Warrior</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <input
-              type="checkbox"
-              name="Assassin"
-              defaultChecked={this.state.gods[2].checked}
-              onChange={this.changeCheckBox}
-            />
-            <span className="class">Assassin</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <input
-              type="checkbox"
-              name="Mage"
-              defaultChecked={this.state.gods[3].checked}
-              onChange={this.changeCheckBox}
-            />
-            <span className="class">Mage</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <input
-              type="checkbox"
-              name="Hunter"
-              defaultChecked={this.state.gods[4].checked}
-              onChange={this.changeCheckBox}
-            />
-            <span className="class">Hunter</span>
-          </div>
+          {this.state.gods.map(array => {
+            return (
+              <CheckBox
+                class={array.class}
+                checked={array.checked}
+                changeCheckBox={this.changeCheckBox}
+              />
+            );
+          })}
         </div>
       </div>
     );

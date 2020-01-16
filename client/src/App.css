@@ -32,3 +32,8 @@ h1 {
 .bg-primary {
   background-color: #E82127!important;
 }
+
+.CheckBox {
+  margin: 10px 0 0 0;
+  text-align: center;
+}
