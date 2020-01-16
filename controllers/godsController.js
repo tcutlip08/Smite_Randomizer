@@ -46,17 +46,16 @@ module.exports = {
             dbModel[i].name[Math.floor(Math.random() * dbModel[i].name.length)]
           );
         }
-        // res.write("Solo: " + team[0] + "<br/>");
-        res.end(
+        res.send(
           "Solo: " +
             team[0] +
-            "\nSupport: " +
+            "     Support: " +
             team[1] +
-            "\nCarry: " +
+            "     Carry: " +
             team[2] +
-            "\nJungle: " +
+            "     Jungle: " +
             team[3] +
-            "\nMid: " +
+            "     Mid: " +
             team[4]
         );
       })
