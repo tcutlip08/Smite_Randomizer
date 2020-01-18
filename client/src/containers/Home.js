@@ -13,14 +13,15 @@ class Home extends Component {
       { class: "Mage", checked: true },
       { class: "Hunter", checked: true }
     ],
+    team: [],
     random: ""
   };
 
   componentDidUpdate() {
-    console.log(this.state);
+    // console.log(this.state);
   }
 
-  randomize() {
+  randomizeSingle() {
     let array = [];
     for (let i = 0; i < this.state.gods.length; i++) {
       if (this.state.gods[i].checked) {
@@ -40,6 +41,53 @@ class Home extends Component {
       .catch(err => {
         console.log(err);
       });
+  }
+  randomizeJoust() {
+    if (this.state.team.length < 3) {
+      let randomclass = this.state.gods[
+        Math.floor(Math.random() * this.state.gods.length)
+      ];
+      if (randomclass.checked) {
+        axios
+          .get("/api/gods/" + randomclass.class + "/random")
+          .then(res => {
+            let array = this.state.team;
+            array.push(res.data);
+            this.setState({ team: array });
+            this.randomizeJoust();
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    } else {
+      this.setState({ random: this.state.team.join(" | "), team: [] });
+      return;
+    }
+  }
+
+  randomizeConquest() {
+    if (this.state.team.length < 5) {
+      let randomclass = this.state.gods[
+        Math.floor(Math.random() * this.state.gods.length)
+      ];
+      if (randomclass.checked) {
+        axios
+          .get("/api/gods/" + randomclass.class + "/random")
+          .then(res => {
+            let array = this.state.team;
+            array.push(res.data);
+            this.setState({ team: array });
+            this.randomizeConquest();
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    } else {
+      this.setState({ random: this.state.team.join(" | "), team: [] });
+      return;
+    }
   }
 
   changeCheckBox = event => {
@@ -64,25 +112,37 @@ class Home extends Component {
           <img src={Logo} alt="Smite Logo" style={{ width: "50%" }} />
         </div>
         <div className="row" style={{ paddingTop: "2em" }}>
-          <div className="col"></div>
           <div className="col" style={{ textAlign: "center", margin: "auto" }}>
             {this.state.random
               ? this.state.random
               : "Go on...click it! You know you want to"}
           </div>
-          <div className="col"></div>
         </div>
         <div className="row" style={{ paddingTop: "2em" }}>
-          <div className="col"></div>
           <div className="col" style={{ textAlign: "center", margin: "auto" }}>
             <button
               className="btn btn-secondary"
-              onClick={() => this.randomize()}
+              onClick={() => this.randomizeJoust()}
             >
-              Randomize
+              Joust Team
             </button>
           </div>
-          <div className="col"></div>
+          <div className="col" style={{ textAlign: "center", margin: "auto" }}>
+            <button
+              className="btn btn-secondary"
+              onClick={() => this.randomizeSingle()}
+            >
+              Single God
+            </button>
+          </div>
+          <div className="col" style={{ textAlign: "center", margin: "auto" }}>
+            <button
+              className="btn btn-secondary"
+              onClick={() => this.randomizeConquest()}
+            >
+              Conquest Team
+            </button>
+          </div>
         </div>
         <div className="row">
           {this.state.gods.map(array => {

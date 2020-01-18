@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = props => {
+const CheckBox = props => {
   return (
     <div className="col CheckBox">
       <input
@@ -15,4 +15,4 @@ const NavBar = props => {
   );
 };
 
-export default NavBar;
+export default CheckBox;
