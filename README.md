@@ -91,6 +91,6 @@ _Nightbot Command_- `!addcom !randomhunter $(urlfetch https://smite-randomizer-t
 returns a random god with no boundaries of class<br/>
 _Nightbot Command_- `!addcom !randomjoust $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/joust)`
 
-`!randomconq` - route "/api/gods/Hunter/random"
+`!randomconquest` - route "/api/gods/Hunter/random"
 returns a random god with no boundaries of class<br/>
 _Nightbot Command_- `!addcom !randomconquest $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/conquest)`
