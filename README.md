@@ -87,10 +87,10 @@ _Nightbot Command_- `!addcom !randommage $(urlfetch https://smite-randomizer-tnc
 _Description_ - returns a random god from the class Hunter<br/>
 _Nightbot Command_- `!addcom !randomhunter $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Hunter/random)`
 
-`!randomjoust` - route **/api/gods/Hunter/random**<br/>
+`!randomjoust` - route **/api/gods/random/team/joust**<br/>
 _Description_ - returns 3 random gods with no boundaries of class (Game mode "Joust" is a 3v3)<br/>
 _Nightbot Command_- `!addcom !randomjoust $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/joust)`
 
-`!randomconquest` - route **/api/gods/Hunter/random**<br/>
+`!randomconquest` - route **/api/gods/random/team/conquest**<br/>
 _Description_ - returns 5 random gods with boundaries of class, 1 god from each class (Game mode "Joust" is a 5v5)<br/>
 _Nightbot Command_- `!addcom !randomconquest $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/conquest)`
