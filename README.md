@@ -61,6 +61,10 @@ A demo of this program can be accessed at this deployed link: https://smite-rand
 
 A Demo of this program can be accessed at this link: https://twitch.tv/cutthelip
 
+At this site there is a bot called _Nightbot_ that is listening 24/7. **note** In order to access the bots command you'll have to link your twitch account to the nightbot website (https://nightbot.tv)
+
+**note** This step is only necessary for you to implement the API on your twitch account
+
 Inside of the `chat` type the following:
 
 `!random` - route **/api/gods/random**<br/>
