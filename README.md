@@ -62,27 +62,35 @@ A demo of this program can be accessed at this deployed link: https://smite-rand
 A Demo of this program can be accessed at this link: https://twitch.tv/cutthelip
 
 Inside of the `chat` type the following:
+
 `!random` - route /api/gods/random
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !random \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random)"
+
 `!randomguardian` - route "/api/gods/Guardian/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomguardian \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Guardian/random)"
+
 `!randomwarrior` - route "/api/gods/Warrior/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomwarrior \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Warrior/random)"
+
 `!randomassassin` - route "/api/gods/Assassin/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomassassin \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Assassin/random)"
+
 `!randommage` - route "/api/gods/Mage/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randommage \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Mage/random)"
+
 `!randomhunter` - route "/api/gods/Hunter/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomhunter \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/Hunter/random)"
+
 `!randomjoust` - route "/api/gods/Hunter/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomjoust \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/joust)"
+
 `!randomconq` - route "/api/gods/Hunter/random"
 returns a random god with no boundaries of class
 _Nightbot Command_- "!addcom !randomconquest \$(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random/team/conquest)"
