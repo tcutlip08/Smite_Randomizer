@@ -63,7 +63,7 @@ A Demo of this program can be accessed at this link: https://twitch.tv/cutthelip
 
 Inside of the `chat` type the following:
 
-`!random` - route /api/gods/random
+`!random` - route --/api/gods/random--
 returns a random god with no boundaries of class<br/>
 _Nightbot Command_- `!addcom !random $(urlfetch https://smite-randomizer-tnc.herokuapp.com/api/gods/random)`
 
