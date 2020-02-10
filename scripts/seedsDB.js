@@ -23,6 +23,7 @@ const godsSeed = [
       "Hercules",
       "Horus",
       "King Arthur",
+      "Mulan",
       "Nike",
       "Odin",
       "Osiris",
