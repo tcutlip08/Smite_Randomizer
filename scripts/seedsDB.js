@@ -115,6 +115,7 @@ const godsSeed = [
       "Ao Kuang",
       "Aphrodite",
       "Baron Samedi",
+      "Baba Yaga",
       "Chang'e",
       "Chronos",
       "Discordia",
