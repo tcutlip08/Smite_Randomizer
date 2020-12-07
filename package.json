@@ -1,14 +1,14 @@
 {
-  "name": "tesla-app",
+  "name": "smite-randomizer",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "npm server.js",
     "dev": "concurrently \"nodemon server.js\" \"cd client && npm run start\"",
     "install": "cd client && npm install",
-    "seed": "node scripts/seedsDB.js",
+    "seed": "npm run scripts/seedsDB.js",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
