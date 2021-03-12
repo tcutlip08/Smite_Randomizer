@@ -18,10 +18,10 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smite", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
 });
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   // console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
