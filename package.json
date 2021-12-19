@@ -5,12 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm server.js",
     "dev": "concurrently \"nodemon server.js\" \"cd client && npm run start\"",
+    "seed": "node scripts/seedsDB.js",
     "install": "cd client && npm install",
-    "seed": "npm run scripts/seedsDB.js",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +17,10 @@
     "@aws-amplify/ui-react": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.5",
+    "mongosh": "^1.0.7",
     "path": "^0.12.7"
   }
 }

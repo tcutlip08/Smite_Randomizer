@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require("dotenv").config();
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/smite", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/SmiteRandomizer",
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  }
+);
 
 const godsSeed = [
   {
@@ -29,8 +33,8 @@ const godsSeed = [
       "Osiris",
       "Sun Wukong",
       "Tyr",
-      "Vamana"
-    ]
+      "Vamana",
+    ],
   },
   {
     class: "Guardian",
@@ -53,8 +57,8 @@ const godsSeed = [
       "Terra",
       "Xing Tian",
       "Yemoja",
-      "Ymir"
-    ]
+      "Ymir",
+    ],
   },
   {
     class: "Hunter",
@@ -77,8 +81,8 @@ const godsSeed = [
       "Rama",
       "Skadi",
       "Ullr",
-      "Xbalanque"
-    ]
+      "Xbalanque",
+    ],
   },
   {
     class: "Assassin",
@@ -103,8 +107,8 @@ const godsSeed = [
       "Set",
       "Susano",
       "Thanatos",
-      "Thor"
-    ]
+      "Thor",
+    ],
   },
   {
     class: "Mage",
@@ -141,18 +145,29 @@ const godsSeed = [
       "Thoth",
       "Vulcan",
       "Zeus",
-      "Zhong Kui"
-    ]
-  }
+      "Zhong Kui",
+    ],
+  },
 ];
 
 db.Gods.remove({})
   .then(() => db.Gods.collection.insertMany(godsSeed))
-  .then(data => {
+  .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });
+
+// db.Gods.collection
+//   .insertMany(godsSeed)
+//   .then((data) => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
