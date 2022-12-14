@@ -18,7 +18,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.0",
     "dotenv": "^8.6.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.7.5",
     "mongosh": "^1.0.7",
     "path": "^0.12.7"
